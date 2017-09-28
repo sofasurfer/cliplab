@@ -1,33 +1,41 @@
 <?php snippet('header') ?>
 
-  <main class="main" role="main">
-    
-    <header class="wrap">
-      <h1><?= $page->title()->html() ?></h1>
-      <div class="intro text">
-        <?= $page->year() ?>
+<main>
+    <div class="container main">
+      <div class="row">
+        <div class="col-md-12">
+          <h1><?= $page->title()->html() ?></h1>
+          <div class="intro text">
+            <?= $page->intro()->kirbytext() ?>
+          </div>
+        </div>
       </div>
-      <hr />
-    </header>
-    
-    <div class="text wrap">
-      
-      <?= $page->text()->kirbytext() ?>
-
-      <?php
-      // Images for the "project" template are sortable. You
-      // can change the display by clicking the 'edit' button
-      // above the files list in the sidebar.
-      foreach($page->images()->sortBy('sort', 'asc') as $image): ?>
-        <figure>
-          <img src="<?= $image->url() ?>" alt="<?= $page->title()->html() ?>" />
-        </figure>
-      <?php endforeach ?>
-      
     </div>
-    
-    <?php snippet('prevnext') ?>
-
-  </main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">    
+          <?php 
+          // echo '<pre>';
+          // var_dump($page);
+          // echo '<pre>';
+          if ($page->videolink() != ""){
+            snippet('video');
+          }else if ($page->images() != ""){
+            snippet('gallery');
+          }
+          ?>
+        </div>
+      </div>
+    </div>           
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2><?= $page->year() ?></h2>
+          <p><?= $page->text()->kirbytext() ?></p>
+        </div>
+      </div>
+    </div> 
+    <?php snippet('showcase', ['limit' => 3,'subpages' => true]) ?>
+</main>
 
 <?php snippet('footer') ?>

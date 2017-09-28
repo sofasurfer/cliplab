@@ -1,19 +1,13 @@
-<?php snippet('header') ?>
-
-  <main class="main" role="main">
-
-    <header class="wrap">
+<?php snippet('header',['showclose' => true]) ?>
+<div class="container dark">
+  <div class="row">
+    <div class="col-md-12">
       <h1><?= $page->title()->html() ?></h1>
       <div class="intro text">
         <?= $page->intro()->kirbytext() ?>
       </div>
-      <hr />
-    </header>
-      
-    <div class="text wrap">
       <?= $page->text()->kirbytext() ?>
     </div>
-
-  </main>
-
+  </div>
+</div>
 <?php snippet('footer') ?>

@@ -8,19 +8,24 @@
   <title><?= $site->title()->html() ?> | <?= $page->title()->html() ?></title>
   <meta name="description" content="<?= $site->description()->html() ?>">
 
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"  />   
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
   <?= css('assets/css/index.css') ?>
 
 </head>
-<body>
+<body class="<?= $page->intendedTemplate(); ?>">
 
-  <header class="header wrap wide" role="banner">
-    <div class="grid">
-
-      <div class="branding column">
-        <a href="<?= url() ?>" rel="home"><?= $site->title()->html() ?></a>
+  <div class="container header">
+    <div class="row">
+      <div class="col-md-6">
+        <a href="<?= url() ?>" rel="home" class="logo"><img width="80" src="/assets/images/logo.png" class="logo"/></a>
       </div>
-
-      <?php snippet('menu') ?>
-
+      <div class="col-md-6 pull-right">
+        <?php if(isset($showclose)): ?>
+          <a href="<?= url() ?>" rel="home" class="close"></a>
+        <?php else: ?>
+          <?php snippet('overlay') ?>
+        <?php endif ?>
+      </div>
     </div>
-  </header>
+  </div>

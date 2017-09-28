@@ -3,7 +3,8 @@ title: Project
 files:
   sortable: true
 
-pages: false
+pages: true
+  template: project
 
 fields:
   title:
@@ -19,3 +20,7 @@ fields:
   text:
     label: Text
     type:  textarea
+
+  videolink:
+    label: Video
+    type:  text
