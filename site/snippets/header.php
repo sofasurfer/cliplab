@@ -18,14 +18,23 @@
   <div class="container header">
     <div class="row">
       <div class="col-md-6">
-        <a href="<?= url() ?>" rel="home" class="logo"><img width="80" src="/assets/images/logo.png" class="logo"/></a>
+        <?php 
+          if(!empty($theme) && $theme == 'dark'){
+            $logoimage = '/assets/images/logo-bright.svg';
+          }else{
+            $logoimage = '/assets/images/logo-dark.svg';            
+          }
+        ?>
+        <a href="<?= url() ?>" rel="home" class="logo"><img width="80" src="<?= $logoimage ?>" class="logo"/></a>
       </div>
-      <div class="col-md-6 pull-right">
+      <div class="col-md-6">
+        <div class="pull-right">
         <?php if(isset($showclose)): ?>
           <a href="<?= url() ?>" rel="home" class="close"></a>
         <?php else: ?>
           <?php snippet('overlay') ?>
         <?php endif ?>
+        </div>
       </div>
     </div>
   </div>

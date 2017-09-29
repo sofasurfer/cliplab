@@ -2,11 +2,11 @@
 <div class="lower pull-right">
   <label for="op"></label>
 </div>
-<div class="overlay overlay-hugeinc">
+<div class="container overlay overlay-hugeinc">
             <label for="op"></label>
             <nav>
                 <?php
-                $projects = page('projects')->children()->visible();
+                $projects = page('projects')->children();
                 ?>
                 <ul>
                     <?php foreach($projects as $project): ?>

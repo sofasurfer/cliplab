@@ -13,10 +13,15 @@
     // Images for the "project" template are sortable. You
     // can change the display by clicking the 'edit' button
     // above the files list in the sidebar.
+    if(!empty($galleypage)){
+      $galleypage = $galleypage;
+    }else{
+      $galleypage = $page;
+    }
     $isfirst = true;
-    foreach($page->images()->sortBy('sort', 'asc') as $image): ?>
+    foreach($galleypage->images()->sortBy('sort', 'asc') as $image): ?>
       <div class="item <?= $isfirst ? 'active' : '' ?>">
-        <img src="<?= $image->url() ?>"" class="img-responsive" alt="<?= $page->title()->html() ?>" />
+        <img src="<?= $image->url() ?>"" class="img-responsive" alt="<?= $galleypage->title()->html() ?>" />
       </div>
     <?php 
     $isfirst = false;

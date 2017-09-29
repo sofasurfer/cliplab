@@ -35,7 +35,14 @@
         </div>
       </div>
     </div> 
-    <?php snippet('showcase', ['limit' => 3,'subpages' => true]) ?>
+    <?php
+    if( !empty($page->children()) && $page->children() != ""){
+      $subpages = $page->children();
+      foreach ($subpages as $subpage){
+        snippet('subpages',['subpage' => $subpage]);
+      }
+    }
+    ?>
 </main>
 
 <?php snippet('footer') ?>

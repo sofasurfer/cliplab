@@ -1,4 +1,4 @@
-<?php snippet('header',['showclose' => true]) ?>
+<?php snippet('header',['showclose' => true, 'theme' => 'dark']) ?>
 <div class="container dark">
   <div class="row">
     <div class="col-md-12">
