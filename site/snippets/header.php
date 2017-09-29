@@ -8,14 +8,15 @@
   <title><?= $site->title()->html() ?> | <?= $page->title()->html() ?></title>
   <meta name="description" content="<?= $site->description()->html() ?>">
 
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"  />   
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+  <?= css('assets/css/font-awesome.min.css') ?>
+  <?= css('assets/css/bootstrap.min.css') ?>
+  <?= css('assets/css/jquery.fullpage.min.css') ?>
   <?= css('assets/css/index.css') ?>
 
 </head>
 <body class="<?= $page->intendedTemplate(); ?>">
-
-  <div class="container header">
+<header>
+  <div class="container">
     <div class="row">
       <div class="col-md-6">
         <?php 
@@ -25,10 +26,10 @@
             $logoimage = '/assets/images/logo-dark.svg';            
           }
         ?>
-        <a href="<?= url() ?>" rel="home" class="logo"><img width="80" src="<?= $logoimage ?>" class="logo"/></a>
+        <a href="<?= url() ?>" rel="home" class="logo pull-left"><img width="80" src="<?= $logoimage ?>" class="logo"/></a>
       </div>
       <div class="col-md-6">
-        <div class="pull-right">
+        <div class="timeline pull-right">
         <?php if(isset($showclose)): ?>
           <a href="<?= url() ?>" rel="home" class="close"></a>
         <?php else: ?>
@@ -38,3 +39,4 @@
       </div>
     </div>
   </div>
+</header>

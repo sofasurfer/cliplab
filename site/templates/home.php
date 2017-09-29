@@ -1,23 +1,22 @@
-<?php snippet('header') ?>
-<main>
-    <div class="container main">
-      <div class="row">
-        <div class="col-md-12">
-          <h1><?= $page->title()->html() ?></h1>
-          <div class="intro text">
-            <?= $page->intro()->kirbytext() ?>
-          </div>
-          <?= $page->text()->kirbytext() ?>
+<?php snippet('header',['theme' => 'dark']) ?>
+<div id="fullpage">
+    <?php
+    $themes = page('projects')->children();
+
+    $isfirst = true;
+    foreach($themes as $theme): 
+      ?>
+      <div class="section" style="background-image: url('<?= $theme->images()->sortBy('sort', 'asc')->first()->url() ?>');">
+        <div class="container">
+          <a href="<?= $theme->url() ?>" class="showcase-link">
+          <div><h1><?= $theme->title()->html() ?></h1></div>
+          <div><h2><?= $theme->intro()->kirbytext() ?></h2></div>
+          </a>
         </div>
       </div>
-    </div>
-    <?php snippet('showcase', ['limit' => 3]) ?>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <a href="<?= page('projects')->url() ?>" class="btn btn-default pull-right">show all projects &hellip;</a>
-        </div>
-      </div>
-    </div>
-</main>
+      <?php 
+      $isfirst = false;
+    endforeach; 
+    ?>    
+</div>
 <?php snippet('footer') ?>

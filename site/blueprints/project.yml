@@ -17,6 +17,10 @@ fields:
     type:  text
     width: 1/4
 
+  intro:
+    label: Intro
+    type:  textarea
+
   text:
     label: Text
     type:  textarea
