@@ -8,7 +8,7 @@
   <title><?= $site->title()->html() ?> | <?= $page->title()->html() ?></title>
   <meta name="description" content="<?= $site->description()->html() ?>">
 
-  <?= css('assets/css/font-awesome.min.css') ?>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"  />   
   <?= css('assets/css/bootstrap.min.css') ?>
   <?= css('assets/css/jquery.fullpage.min.css') ?>
   <?= css('assets/css/index.css') ?>
@@ -26,10 +26,13 @@
             $logoimage = '/assets/images/logo-dark.svg';            
           }
         ?>
-        <a href="<?= url() ?>" rel="home" class="logo pull-left"><img width="80" src="<?= $logoimage ?>" class="logo"/></a>
+        <div class="logo">
+        <a href="<?= url() ?>" rel="home" class="logo pull-left default"><img width="80" src="<?= $logoimage ?>" class="logo"/></a>
+        <a href="<?= url() ?>" rel="home" class="logo pull-left hover"><img width="80" src="/assets/images/logo-hover.svg" class="logo"/></a>
+        </div>
       </div>
       <div class="col-md-6">
-        <div class="timeline pull-right">
+        <div class="timeline">
         <?php if(isset($showclose)): ?>
           <a href="<?= url() ?>" rel="home" class="close"></a>
         <?php else: ?>

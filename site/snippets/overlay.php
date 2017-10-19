@@ -6,22 +6,31 @@
     
     <div class="container">
       <div class="row">
-        <div class="col-md-6"> 
-            <a href="<?= url() ?>" rel="home" class="logo pull-left"><img width="80" src="/assets/images/logo-dark.svg" class="logo"/></a>
+        <div class="col-md-2">
+            <div class="logo">
+            <a href="<?= url() ?>" rel="home" class="logo pull-left default"><img width="80" src="/assets/images/logo-dark.svg" class="logo-overlay"/></a>
+            <a href="<?= url() ?>" rel="home" class="logo pull-left hover"><img width="80" src="/assets/images/logo-bright.svg" class="logo"/></a>
+            </div>
         </div>
         <div class="col-md-6">
-            <div class="pull-right">
+            <div class="search">
+                <span class="fa fa-search"></span>
+                <input type="text" id="search_field" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="oclose">
                 <label for="op"></label>
             </div>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12">    
+        <div class="col-md-8 col-md-offset-2">    
             <nav>
                 <?php
                 $projects = page('projects')->children();
                 ?>
-                <ul>
+                <ul id="search_results">
                     <?php foreach($projects as $project): ?>
                         <li>
                             <a href="<?= $project->url() ?>" class="showcase-link">
