@@ -14,7 +14,6 @@ if(kirby()->request()->ajax()) {
             'url' => $result->url(),
         );
         $s_results[] = $item;
-
     }
     echo json_encode($s_results);
     

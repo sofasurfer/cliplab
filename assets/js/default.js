@@ -17,6 +17,17 @@ $(document).ready(function() {
 
 
       /*
+        Set focus on search field when open
+      */
+      $("#op").change(function() {
+          console.log('change');
+          if($(this).is(":checked")) {
+            console.log('focus');
+            $('#search_field').focus();
+          }
+      });
+
+      /*
         Search
       */
       var oldSearch = $('#search_results').html();
@@ -25,10 +36,9 @@ $(document).ready(function() {
           $('#search_results').html(oldSearch);
         }else{
           $.getJSON( "/ajax?q=" + $(this).val(), function( data ) {
-            $('#search_results').html();
+            $('#search_results').empty();
             $.each(data, function(i, item) {
-              $('#search_results').append('li').append('a').attr('href',item.url).addClass('showcase-link')
-                .append('h3').text(item.title);
+              $('#search_results').append( $('<li><div>'+item.modified+'</div><a href="'+item.url+'" class="showcase-link"><h3 class="showcase-title">'+item.title+'</h3></a><div>'+item.description+'</div></li>') );
             });
           });
         }

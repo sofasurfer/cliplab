@@ -14,7 +14,7 @@
         <div class="col-md-6">
             <div class="search">
                 <span class="fa fa-search"></span>
-                <input type="text" id="search_field" />
+                <input type="text" id="search_field" autofocus />
             </div>
         </div>
         <div class="col-md-4">
@@ -32,11 +32,11 @@
                 <ul id="search_results">
                     <?php foreach($projects as $project): ?>
                         <li>
-                            <a href="<?= $project->url() ?>" class="showcase-link">
                             <div><?= date('d.m.Y',$project->modified()) ?></div>
+                            <a href="<?= $project->url() ?>" class="showcase-link">
                             <h3 class="showcase-title"><?= $project->title()->html() ?></h3>
-                            <div><?= $project->intro()->kirbytext() ?></div>
                             </a>
+                            <div><?= $project->intro()->kirbytext() ?></div>
                         </li>
                     <?php endforeach ?>
                 </ul>
