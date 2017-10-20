@@ -12,10 +12,11 @@ fields:
     type:  text
     width: 3/4
 
-  year:
-    label: Year
-    type:  text
+  created:
+    label: Datum
+    type:  date
     width: 1/4
+    default: today
 
   intro:
     label: Intro

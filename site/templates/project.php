@@ -30,7 +30,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2><?= $page->year() ?></h2>
+          <h2><?= $page->created() ?></h2>
           <p><?= $page->text()->kirbytext() ?></p>
         </div>
       </div>

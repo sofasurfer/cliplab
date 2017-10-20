@@ -32,7 +32,7 @@
                 <ul id="search_results">
                     <?php foreach($projects as $project): ?>
                         <li>
-                            <div><?= date('d.m.Y',$project->modified()) ?></div>
+                            <div><?= $project->created() ?></div>
                             <a href="<?= $project->url() ?>" class="showcase-link">
                             <h3 class="showcase-title"><?= $project->title()->html() ?></h3>
                             </a>
