@@ -50,21 +50,21 @@ header{
     left: 0;
     right: 0;
 }
-header a.logo.hover{
-  display: none;
+
+
+header .logo svg{
+  width: 80px!important;
 }
-header div.logo:hover a.logo.default{
-  display: none;
+header .logo svg:hover path{
+  fill: aqua!important;
 }
-header div.logo:hover a.logo.hover{
-  display: block;
-}
+
 header.scroll{
     padding-top: 10px;
     padding-bottom: 50px;
 }
-header.scroll img.logo{
-    width: 4rem;
+header.scroll .logo svg{
+    width: 52px!important;
 }
 
 header.scroll .lower label{
@@ -87,6 +87,12 @@ body.home header,
 body.default header{
     background-color: transparent;
 }
+body.default header div.logo svg path{
+  fill: white!important;
+}
+body.default header div.logo svg:hover path{
+  fill: aqua!important;
+}
 body.home .lower label:before, 
 body.home .lower label:after{
     background-color: white;
@@ -94,6 +100,18 @@ body.home .lower label:after{
 body.home .lower:hover label:before,
 body.home .lower:hover label:after{
   background-color: aqua;
+}
+body.home header div.logo svg path{
+  fill: white!important;
+}
+body.home header div.logo svg:hover path{
+  fill: aqua!important;
+}
+body.home header div.logo.black svg path{
+  fill: black!important;
+}
+body.home header div.logo.black svg:hover path{
+  fill: white!important;
 }
 
 /*
@@ -289,6 +307,7 @@ input#op{
     background: rgba(41,250,76,1);
     z-index: 999;
 }
+
 .overlay a{
     color: black!important;
     text-decoration: none;

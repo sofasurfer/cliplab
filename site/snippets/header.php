@@ -11,7 +11,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"  />   
   <?= css('assets/css/bootstrap.min.css') ?>
   <?= css('assets/css/jquery.fullpage.min.css') ?>
-  <?= css('assets/css/index.css') ?>
+  <?= css('assets/css/index.css?v1.0') ?>
 
 </head>
 <body class="<?= $page->intendedTemplate(); ?>">
@@ -19,16 +19,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <?php 
-          if(!empty($theme) && $theme == 'dark'){
-            $logoimage = '/assets/images/logo-bright.svg';
-          }else{
-            $logoimage = '/assets/images/logo-dark.svg';            
-          }
-        ?>
         <div class="logo">
-        <a href="<?= url() ?>" rel="home" class="logo pull-left default"><img width="80" src="<?= $logoimage ?>" class="logo"/></a>
-        <a href="<?= url() ?>" rel="home" class="logo pull-left hover"><img width="80" src="/assets/images/logo-hover.svg" class="logo"/></a>
+        <a href="<?= url() ?>" rel="home" class="pull-left"><?php snippet('logo') ?></a>
         </div>
       </div>
       <div class="col-md-6">

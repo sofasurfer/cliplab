@@ -7,9 +7,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-2">
-            <div class="logo">
-            <a href="<?= url() ?>" rel="home" class="logo pull-left default"><img width="80" src="/assets/images/logo-dark.svg" class="logo-overlay"/></a>
-            <a href="<?= url() ?>" rel="home" class="logo pull-left hover"><img width="80" src="/assets/images/logo-bright.svg" class="logo"/></a>
+            <div class="logo black">
+            <a href="<?= url() ?>" rel="home" class="pull-left"><?php snippet('logo') ?></a>
             </div>
         </div>
         <div class="col-md-6">
