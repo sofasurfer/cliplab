@@ -11,7 +11,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"  />   
   <?= css('assets/css/bootstrap.min.css') ?>
   <?= css('assets/css/jquery.fullpage.min.css') ?>
-  <?= css('assets/css/index.css?v1.0') ?>
+  <?= css('assets/css/index.css?v1.1') ?>
 
 </head>
 <body class="<?= $page->intendedTemplate(); ?>">
