@@ -60,7 +60,7 @@ header .logo svg:hover path{
 }
 
 header.scroll{
-    padding-top: 10px;
+    padding-top: 20px;
     padding-bottom: 50px;
 }
 header.scroll .logo svg{
@@ -262,7 +262,7 @@ input#op{
 
 .lower label{
     position: absolute;
-    right: 32px;
+    right: 0px;
     top: 10px;
     width: 32px;
     height: 32px;
@@ -315,7 +315,7 @@ input#op{
 }
 .overlay .oclose label{
     position: absolute;
-    right: 45px;
+    right: 15px;
     top: 10px;
     width: 32px;
     height: 32px;
