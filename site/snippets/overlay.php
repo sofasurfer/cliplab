@@ -2,8 +2,8 @@
 <div class="lower pull-right">
   <label for="op"></label>
 </div>
-<div class="container overlay overlay-hugeinc">
-    
+<div class="overlay overlay-hugeinc">
+  <header>
     <div class="container">
       <div class="row">
         <div class="col-md-2">
@@ -23,20 +23,53 @@
             </div>
         </div>
       </div>
+    </div>
+  </header>
+  <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">    
             <nav>
                 <?php
+                function date_compare($a, $b)
+                {
+                    $t1 = strtotime($a['created']);
+                    $t2 = strtotime($b['created']);
+                    return $t2 - $t1;
+                } 
+
                 $projects = page('projects')->children();
+                $timeline = array();
+                foreach ($projects as $project) {
+                    $timeline[] = array(
+                        'title' => (string)$project->title(),
+                        'description' => (string)$project->intro()->kirbytext(),
+                        'created' => (string)$project->modified('d.m.Y'),
+                        'url' => $project->url(),
+                    );
+                    if($project->hasChildren()) {
+                        $children = $project->children();                
+                        foreach ($children as $child) {
+                            $timeline[] = array(
+                                'title' => (string)$project->title() . ' - ' . (string)$child->title(),
+                                'description' => (string)$child->intro()->kirbytext(),
+                                'created' => (string)$child->modified('d.m.Y'),
+                                'url' => $project->url() . '#' . str_replace("/", "-", $child->id()),
+                            );
+                        }
+                    }
+                }
+                usort($timeline, 'date_compare');
+                // echo "<pre>".print_r($timeline,true)."</pre>";
+
                 ?>
                 <ul id="search_results">
-                    <?php foreach($projects as $project): ?>
+                    <?php foreach($timeline as $line): ?>
                         <li>
-                            <div><?= $project->created() ?></div>
-                            <a href="<?= $project->url() ?>" class="showcase-link">
-                            <h3 class="showcase-title"><?= $project->title()->html() ?></h3>
+                            <div><?= $line['created'] ?></div>
+                            <a href="<?= $line['url'] ?>" class="showcase-link">
+                            <h3 class="showcase-title"><?= $line['title'] ?></h3>
                             </a>
-                            <div><?= $project->intro()->kirbytext() ?></div>
+                            <div><?= $line['description'] ?></div>
                         </li>
                     <?php endforeach ?>
                 </ul>

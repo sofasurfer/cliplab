@@ -5,6 +5,14 @@ $(document).ready(function() {
       $('[data-toggle="tooltip"]').tooltip();
 
       /*
+      
+      */
+      $('#search_results a').click(function(){
+        $('#op').attr('checked', false);
+        $('body').removeClass('overlay');
+      });
+
+      /*
         Scroll Top
       */
       $(window).scroll(function () {
@@ -20,10 +28,11 @@ $(document).ready(function() {
         Set focus on search field when open
       */
       $("#op").change(function() {
-          console.log('change');
           if($(this).is(":checked")) {
-            console.log('focus');
             $('#search_field').focus();
+            $('body').addClass('overlay');
+          }else{
+            $('body').removeClass('overlay');
           }
       });
 

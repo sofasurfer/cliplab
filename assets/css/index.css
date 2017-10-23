@@ -14,6 +14,10 @@ body{
 
 }
 
+body.overlay{
+  overflow: hidden;
+}
+
 main{
     /* height:80vh; */   
     padding-bottom: 50px!important;
@@ -76,6 +80,9 @@ header.scroll .lower label:after {
   height: 2rem;
 }
 
+.overlay header{
+  background-color: rgba(41,250,76,1);
+}
 
 /*
     Body
@@ -186,6 +193,13 @@ body.home footer{
     bottom:0px;
     left: 0px;
     right: 0px;
+}
+
+a.anchor{
+    display: block;
+    position: relative;
+    top: -200px;
+    visibility: hidden;
 }
 
 /*
@@ -304,11 +318,15 @@ input#op{
     height: 100%;
     top: 0;
     left: 0;
+    overflow-y: scroll;
     padding-top: 50px;
     background: rgba(41,250,76,1);
     z-index: 999;
 }
-
+/*.overlay .header{
+  position: fixed;
+  top: 50px;
+}*/
 .overlay a{
     color: black!important;
     text-decoration: none;
