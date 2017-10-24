@@ -20,7 +20,7 @@
           // echo '<pre>';
           if ($page->videolink() != ""){
             snippet('video');
-          }else if ($page->images() != ""){
+          }else if ($page->showslider() == '1'){
             snippet('gallery');
           }
           ?>

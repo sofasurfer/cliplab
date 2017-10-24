@@ -2,7 +2,7 @@
 <div class="container anchor">
   <div class="row">
     <div class="col-md-12">
-      <h1><?= $subpage->title()->html() ?></h1>
+      <h1><?= $subpage->title()->html() ?>/<?= $subpage->showslider() ?></h1>
       <div class="intro text">
         <?= $subpage->intro()->kirbytext() ?>
       </div>
@@ -15,7 +15,7 @@
       <?php 
       if ($subpage->videolink() != ""){
         snippet('video',['videourl' => $subpage->videolink()]);
-      }else if ($subpage->images() != ""){
+      }else if ($subpage->showslider() == '1'){
         snippet('gallery',['galleypage' => $subpage]);
       }
       ?>

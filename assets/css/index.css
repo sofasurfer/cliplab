@@ -121,6 +121,7 @@ body.home header div.logo.black svg:hover path{
   fill: white!important;
 }
 
+
 /*
     Container
 */
@@ -260,6 +261,13 @@ a.anchor{
   transform: rotate(-45deg);
 }
 
+
+/*
+  Slider
+*/
+.carousel-inner .item img{
+  width: 100%!important;
+}
 
 /*
     Overlay
