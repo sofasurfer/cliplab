@@ -2,7 +2,7 @@
 <div class="container anchor">
   <div class="row">
     <div class="col-md-12">
-      <h1><?= $subpage->title()->html() ?>/<?= $subpage->showslider() ?></h1>
+      <h1><?= $subpage->title()->html() ?></h1>
       <div class="intro text">
         <?= $subpage->intro()->kirbytext() ?>
       </div>
