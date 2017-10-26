@@ -84,6 +84,10 @@ header.scroll .lower label:after {
   background-color: rgba(41,250,76,1);
 }
 
+
+figure img{
+  max-width: 100%;  
+}
 /*
     Body
 */

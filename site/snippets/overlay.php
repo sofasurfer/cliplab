@@ -42,7 +42,7 @@
                     $timeline[] = array(
                         'title' => (string)$project->title(),
                         'description' => (string)$project->intro()->kirbytext(),
-                        'created' => (string)$project->modified('d.m.Y'),
+                        'created' => (string)$project->created('d.m.Y'),
                         'url' => $project->url(),
                     );
                     if($project->hasChildren()) {
@@ -51,7 +51,7 @@
                             $timeline[] = array(
                                 'title' => (string)$project->title() . ' - ' . (string)$child->title(),
                                 'description' => (string)$child->intro()->kirbytext(),
-                                'created' => (string)$child->modified('d.m.Y'),
+                                'created' => (string)$child->created('d.m.Y'),
                                 'url' => $project->url() . '#' . str_replace("/", "-", $child->id()),
                             );
                         }
