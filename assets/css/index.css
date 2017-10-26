@@ -419,3 +419,13 @@ input#op{
     padding: 0!important;
     margin: 0!important;
 }
+
+
+/*
+  Responsive Shit
+*/
+@media (max-width:767px){
+  body.home .section .container h1{
+    font-size: 6rem!important;
+  }
+}
