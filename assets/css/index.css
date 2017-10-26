@@ -94,6 +94,9 @@ body.home header,
 body.default header{
     background-color: transparent;
 }
+body.home .overlay header{
+    background: rgba(41,250,76,1)!important;
+}
 body.default header div.logo svg path{
   fill: white!important;
 }
@@ -396,7 +399,7 @@ input#op{
 
 .overlay ul{
     margin-top: 100px;
-    margin-left: 0;
+    margin-left: 20px;
     padding-left: 0px;
 }
 .overlay ul li {

@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="search">
+            <div class="search hidden-xs">
                 <span class="fa fa-search"></span>
                 <input type="text" id="search_field" autofocus />
             </div>
@@ -28,7 +28,6 @@
   <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">    
-            <nav>
                 <?php
                 function date_compare($a, $b)
                 {
@@ -73,7 +72,6 @@
                         </li>
                     <?php endforeach ?>
                 </ul>
-            </nav>
         </div>
       </div>
     </div>
