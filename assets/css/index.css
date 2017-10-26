@@ -88,6 +88,11 @@ header.scroll .lower label:after {
 figure img{
   max-width: 100%;  
 }
+
+figure.floated{
+  float: left;
+}
+
 /*
     Body
 */
