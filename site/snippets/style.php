@@ -415,6 +415,7 @@ input#op{
     padding-top: 50px;
     background: rgba(41,250,76,1);
     z-index: 999;
+    -webkit-overflow-scrolling: touch;    
 }
 /*.overlay .header{
   position: fixed;

@@ -49,7 +49,7 @@
                         $children = $project->children();                
                         foreach ($children as $child) {
                             $timeline[] = array(
-                                'title' => (string)$project->title() . ' - ' . (string)$child->title(),
+                                'title' => '' . (string)$project->title() . ' -> ' . (string)$child->title(),
                                 'description' => (string)$child->intro()->kirbytext(),
                                 'created' => (string)$child->created('d.m.Y'),
                                 'url' => $project->url() . '#' . str_replace("/", "-", $child->id()),

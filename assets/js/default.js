@@ -1,11 +1,11 @@
 $(document).ready(function() {
       
-      $('#fullpage').fullpage();
+      $('.fullpage').fullpage();
 
       $('[data-toggle="tooltip"]').tooltip();
 
       /*
-      
+        Hide overlay when click in timeline
       */
       $('#search_results a').click(function(){
         $('#op').attr('checked', false);

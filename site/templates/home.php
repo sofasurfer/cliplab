@@ -1,5 +1,5 @@
 <?php snippet('header',['theme' => 'dark']) ?>
-<div id="fullpage">
+<div id="fullpage" class="fullpage">
     <?php
     $themes = page('projects')->children()->visible();
 
