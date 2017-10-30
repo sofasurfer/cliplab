@@ -11,19 +11,13 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">    
-          <?php 
-          if ($page->videolink() != ""){
-            snippet('video');
-          }else if ($page->showslider() == '1'){
-            snippet('gallery');
-          }
-          ?>
-        </div>
-      </div>
-    </div>           
+    <?php 
+    if ($page->videolink() != ""){
+      snippet('video');
+    }else if ($page->showslider() == '1'){
+      snippet('gallery');
+    }
+    ?>        
     <div class="container">
       <div class="row">
         <div class="col-md-12">
