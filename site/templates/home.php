@@ -1,7 +1,7 @@
 <?php snippet('header',['theme' => 'dark']) ?>
 <div id="fullpage">
     <?php
-    $themes = page('projects')->children();
+    $themes = page('projects')->children()->visible();
 
     $isfirst = true;
     foreach($themes as $theme): 

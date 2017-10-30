@@ -1,18 +1,8 @@
 <?php 
 
-header("Content-type: text/css; charset: UTF-8"); 
-
-// load kirby
-define('DS', DIRECTORY_SEPARATOR);
-$kirby = kirby();
-
-require(dirname(
-
-  dirname(dirname(__FILE__))) . DS . 'kirby' . DS . 'bootstrap.php');
-
-$hcolor = $kirby->homePage()->hcolor();
+$hcolor = $site->homePage()->hcolor();
 ?>
-
+<style>
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,600,700,800');
 
@@ -273,13 +263,17 @@ body.home footer{
   Forms
 */
 .form-control{
-  background-color: white!important;
+  background-color: black!important;
   color: white!important;
+  border: solid 1px white!important;
+  border-radius: 0!important;
   border: none;
 }
 .btn-dark{
-  color: black!important;
-  background-color: white!important;  
+  color: white!important;
+  background-color: black!important;  
+  border: solid 1px white!important;
+  border-radius: 0!important;
 }
 
 
@@ -510,3 +504,5 @@ input#op{
     font-size: 6rem!important;
   }
 }
+
+</style>

@@ -1,41 +1,48 @@
-<?php snippet('header') ?>
-
-  <main class="main" role="main">
-    
-    <header class="wrap">
-      <h1><?= $page->title()->html() ?></h1>      
+<?php snippet('header',['showclose' => true, 'theme' => 'dark']) ?>
+<div class="container dark">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>About</h1>
       <div class="intro text">
         <?= $page->intro()->kirbytext() ?>
-      </div>    
-      <hr />      
-    </header>
-    
-    <div class="wrap wide">
-      <h2>Get in Touch</h2>
-      
-      <ul class="contact-options">
-        <?php foreach($page->contactoptions()->toStructure() as $item): ?>
-          <?php $icon = $page->image($item->icon()); ?>
-          <li class="contact-item column">
-            <div class="contact-item-content">
-              <img src="<?= $icon->url() ?>" width="<?= $icon->width() ?>" alt="<?= $item->title()->html() ?> icon" class="contact-item-icon" />
-              <h3 class="contact-item-title"><?= $item->title()->html() ?></h3>
-              <p class="contact-item-text">
-                <?= $item->text()->html() ?>
-              </p>
-            </div>
-            <p class="contact-item-action">
-              <a href="<?= $item->url()->html() ?>" class="contact-action btn"><?= $item->linktext()->html() ?></a>
-            </p>
-          </li>
-        <?php endforeach ?>
-      </ul>
+      </div>
     </div>
-      
-    <div class="contact-twitter text wrap cf">
-      <?= $page->text()->kirbytext() ?>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-0">
+      <h1>Contact</h1>
+      <?php if(get('thank-you')): ?>
+        <h2>Thank you for your request!</h2>
+      <?php else: ?>
+        <form method="get" class="">
+          <?php if($alert): ?>
+          <div class="alert">
+            <ul>
+              <?php foreach($alert as $message): ?>
+              <li><?php echo html($message) ?></li>
+              <?php endforeach ?>
+            </ul>
+          </div>
+          <?php endif ?>
+          <div class="form-group">
+            <label for="name" class="control-label">Name</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="email" class="control-label">E-Mail</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="text" class="control-label">Comment</label>
+            <textarea class="form-control" rows="10" name="text" id="text" placeholder="Comment"></textarea>
+          </div>
+          <div class="form-group">
+            <input type="hidden" name="submit" value="true" />
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </div>
+        </form>
+      <?php endif ?>
     </div>
-    
-  </main>
-
+  </div>
+</div>
 <?php snippet('footer') ?>

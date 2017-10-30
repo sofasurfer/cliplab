@@ -6,6 +6,12 @@ fields:
   title:
     label: Title
     type:  text
+    width: 3/4
+
+  hcolor:
+    label: Link color
+    type:  text
+    width: 1/4
 
   intro:
     label: Intro

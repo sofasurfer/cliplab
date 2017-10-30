@@ -328,6 +328,7 @@ email::$services['postmark'] = function($email) {
   ));
 
   if($email->response->code() != 200) {
+    error_log(print_r($email->response,true));
     throw new Error('The mail could not be sent');
   }
 

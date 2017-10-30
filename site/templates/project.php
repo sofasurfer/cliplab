@@ -15,9 +15,6 @@
       <div class="row">
         <div class="col-md-12">    
           <?php 
-          // echo '<pre>';
-          // var_dump($page);
-          // echo '<pre>';
           if ($page->videolink() != ""){
             snippet('video');
           }else if ($page->showslider() == '1'){
@@ -30,7 +27,6 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2><?= $page->created() ?></h2>
           <p><?= $page->text()->kirbytext() ?></p>
         </div>
       </div>
