@@ -175,7 +175,17 @@ body.home header div.logo.black svg:hover path{
   fill: white!important;
 }
 
-
+#fp-nav ul li a span, 
+.fp-slidesNav ul li a span{
+  background: white!important;
+}
+#fp-nav ul li a:hover span, 
+.fp-slidesNav ul li a:hover span{
+  background: <?= $hcolor ?>!important;
+}
+#fp-nav.right{
+  right: 70px!important;
+}
 /*
     Container
 */
@@ -501,9 +511,19 @@ input#op{
   Responsive Shit
 */
 @media (max-width:767px){
-  body.home .section .container h1{
-    font-size: 6rem!important;
+  header{
+    padding-top: 20px;
   }
+  body.home .section .container h1{
+    font-size: 5rem!important;
+  }
+  .container.main{
+    margin-top: 100px;
+  }
+  #fp-nav.right{
+    display: none;
+    right: 5px!important;
+  }  
 }
 
 </style>
