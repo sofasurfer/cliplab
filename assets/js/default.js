@@ -1,6 +1,10 @@
 $(document).ready(function() {
       
-      $('.fullpage').fullpage();
+      $('.fullpage').fullpage({
+        autoScrolling: true,
+        navigation: true,
+        navigationPosition: 'right',        
+      });
 
       $('[data-toggle="tooltip"]').tooltip();
 
