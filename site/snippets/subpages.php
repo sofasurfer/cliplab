@@ -9,19 +9,13 @@
     </div>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">    
-      <?php 
-      if ($subpage->videolink() != ""){
-        snippet('video',['videourl' => $subpage->videolink()]);
-      }else if ($subpage->showslider() == '1'){
-        snippet('gallery',['galleypage' => $subpage]);
-      }
-      ?>
-    </div>
-  </div>
-</div>           
+<?php 
+if ($subpage->videolink() != ""){
+  snippet('video',['videourl' => $subpage->videolink()]);
+}else if ($subpage->showslider() == '1'){
+  snippet('gallery',['galleypage' => $subpage]);
+}
+?>         
 <div class="container">
   <div class="row">
     <div class="col-md-12">

@@ -15,7 +15,7 @@ for more information: http://getkirby.com/license
 
 */
 
-c::set('license', 'put your license key here');
+c::set('license', 'K2-PERSONAL-2cd7a92cec0aa4cb1a83e6d12b3df98e');
 c::set('panel.install',true);
 c::set('debug',true);
 c::set('url','https://www.cliplab.ch/');
