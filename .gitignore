@@ -28,8 +28,12 @@ robots.txt
 /site/accounts/*
 !/site/accounts/index.html
 
+/site/config/*
+!/site/config/index.html
+
 # Avatars
 # ---------------
 
 /assets/avatars/*
 !/assets/avatars/index.html
+~                               
