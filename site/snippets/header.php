@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="logo">
-        <a href="<?= url() ?>" rel="home" class="pull-left"><?php snippet('logo') ?></a>
+        <a href="<?= url() . '#' . $page->slug(); ?>" rel="home" class="pull-left"><?php snippet('logo') ?></a>
         </div>
       </div>
       <div class="col-md-6">
