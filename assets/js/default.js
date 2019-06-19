@@ -1,9 +1,16 @@
 $(document).ready(function() {
       
+      var anchors = [];
+      $('.section').each(function(){
+        anchors.push( $(this).attr('data-anchor') );
+      });
+
+
       $('.fullpage').fullpage({
         autoScrolling: true,
         navigation: true,
-        navigationPosition: 'right',        
+        navigationPosition: 'right',     
+        anchors: anchors 
       });
 
       $('[data-toggle="tooltip"]').tooltip();

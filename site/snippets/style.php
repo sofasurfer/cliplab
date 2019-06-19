@@ -500,7 +500,7 @@ input#op{
 }
 .overlay ul li {
     list-style: none;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 .overlay ul li h3{
     padding: 0!important;
