@@ -25,6 +25,8 @@ robots.txt
 # ---------------
 
 /content/*
+/media/*
+/site/sessions/*
 
 /site/accounts/*
 !/site/accounts/index.html

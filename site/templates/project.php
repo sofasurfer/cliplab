@@ -11,12 +11,13 @@
         </div>
       </div>
     </div>
-    <?php 
+    <?php
     if ($page->videolink() != ""){
       snippet('video');
-    }else if ($page->showslider() == '1'){
-      snippet('gallery');
     }
+    // if ($page->showslider() == '1'){
+    //  snippet('gallery');
+    // }
     ?>        
     <div class="container">
       <div class="row">

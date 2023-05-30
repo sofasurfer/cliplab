@@ -10,25 +10,34 @@ columns:
         label: Title
         type:  text
 
-      showslider:
-        label: ImageSlider
-        type: toggle
-        text: show Images as slider
-
       created:
         label: Datum
         type:  date
         default: today
+        width: 1/2
+
+      showslider:
+        label: Homepage
+        type: toggle
+        text: show project on homepage
+        width: 1/2
 
       intro:
         label: Intro
-        type:  textarea
+        type:  textarea  
+      
+      videolink:
+        label: Video
+        type:  text
 
       text:
         label: Text
         type:  textarea
 
   - width: 1/3
-    sections:
+    sections:      
+      pages:
+        type: pages
+        create: default
       files:
         sortable: true
