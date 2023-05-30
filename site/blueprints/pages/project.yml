@@ -1,0 +1,29 @@
+title: Project
+
+pages: true
+  template: project
+
+columns:
+  - width: 2/3
+    fields:
+      title:
+        label: Title
+        type:  text
+
+      created:
+        label: Datum
+        type:  date
+        default: today
+
+      intro:
+        label: Intro
+        type:  textarea
+
+      text:
+        label: Text
+        type:  textarea
+
+  - width: 1/3
+    sections:
+      files:
+        sortable: true

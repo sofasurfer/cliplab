@@ -1,5 +1,5 @@
 <?php
-return function($site, $pages, $page) {
+return function($kirby, $pages, $page) {
   $alert = null;
   if(get('submit')) {
     $data = array(
@@ -31,7 +31,7 @@ return function($site, $pages, $page) {
       $body = str_replace('[+text]',  $data['text'], $body);
 
       // build the email
-      $email = email(array(
+      $email = $kirby->email([
         'to'      => (string)$page->mailto(),
         'from'    => 'site@cliplab.ch',
         'subject' => 'ClipLab contact request',
@@ -41,7 +41,7 @@ return function($site, $pages, $page) {
         'options' => array(
           'key' => '4c3bb2a1-91fd-4aa6-8112-7cb99bc4b63b',
         )        
-      ));
+      ]);
 
       // try to send it and redirect to the
       // thank you page if it worked

@@ -6,9 +6,11 @@
 
 namespace Whoops\Exception;
 
+use Whoops\Inspector\InspectorFactory;
+use Whoops\Inspector\InspectorInterface;
 use Whoops\Util\Misc;
 
-class Inspector
+class Inspector implements InspectorInterface
 {
     /**
      * @var \Throwable
@@ -26,11 +28,23 @@ class Inspector
     private $previousExceptionInspector;
 
     /**
-     * @param \Throwable $exception The exception to inspect
+     * @var \Throwable[]
      */
-    public function __construct($exception)
+    private $previousExceptions;
+
+    /**
+     * @var \Whoops\Inspector\InspectorFactoryInterface|null
+     */
+    protected $inspectorFactory;
+
+    /**
+     * @param \Throwable $exception The exception to inspect
+     * @param \Whoops\Inspector\InspectorFactoryInterface $factory
+     */
+    public function __construct($exception, $factory = null)
     {
         $this->exception = $exception;
+        $this->inspectorFactory = $factory ?: new InspectorFactory();
     }
 
     /**
@@ -58,6 +72,28 @@ class Inspector
     }
 
     /**
+     * @return string[]
+     */
+    public function getPreviousExceptionMessages()
+    {
+        return array_map(function ($prev) {
+            /** @var \Throwable $prev */
+            return $this->extractDocrefUrl($prev->getMessage())['message'];
+        }, $this->getPreviousExceptions());
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getPreviousExceptionCodes()
+    {
+        return array_map(function ($prev) {
+            /** @var \Throwable $prev */
+            return $prev->getCode();
+        }, $this->getPreviousExceptions());
+    }
+
+    /**
      * Returns a url to the php-manual related to the underlying error - when available.
      *
      * @return string|null
@@ -67,7 +103,8 @@ class Inspector
         return $this->extractDocrefUrl($this->exception->getMessage())['url'];
     }
 
-    private function extractDocrefUrl($message) {
+    private function extractDocrefUrl($message)
+    {
         $docref = [
             'message' => $message,
             'url' => null,
@@ -109,26 +146,48 @@ class Inspector
             $previousException = $this->exception->getPrevious();
 
             if ($previousException) {
-                $this->previousExceptionInspector = new Inspector($previousException);
+                $this->previousExceptionInspector = $this->inspectorFactory->create($previousException);
             }
         }
 
         return $this->previousExceptionInspector;
     }
 
+
+    /**
+     * Returns an array of all previous exceptions for this inspector's exception
+     * @return \Throwable[]
+     */
+    public function getPreviousExceptions()
+    {
+        if ($this->previousExceptions === null) {
+            $this->previousExceptions = [];
+
+            $prev = $this->exception->getPrevious();
+            while ($prev !== null) {
+                $this->previousExceptions[] = $prev;
+                $prev = $prev->getPrevious();
+            }
+        }
+
+        return $this->previousExceptions;
+    }
+
     /**
      * Returns an iterator for the inspected exception's
      * frames.
+     * 
+     * @param array<callable> $frameFilters
+     * 
      * @return \Whoops\Exception\FrameCollection
      */
-    public function getFrames()
+    public function getFrames(array $frameFilters = [])
     {
         if ($this->frames === null) {
             $frames = $this->getTrace($this->exception);
 
             // Fill empty line/file info for call_user_func_array usages (PHP Bug #44428)
             foreach ($frames as $k => $frame) {
-
                 if (empty($frame['file'])) {
                     // Default values when file and line are missing
                     $file = '[internal]';
@@ -144,7 +203,6 @@ class Inspector
                     $frames[$k]['file'] = $file;
                     $frames[$k]['line'] = $line;
                 }
-
             }
 
             // Find latest non-error handling frame index ($i) used to remove error handling frames
@@ -179,6 +237,13 @@ class Inspector
                 $newFrames->prependFrames($outerFrames->topDiff($newFrames));
                 $this->frames = $newFrames;
             }
+
+            // Apply frame filters callbacks on the frames stack
+            if (!empty($frameFilters)) {
+                foreach ($frameFilters as $filterCallback) {
+                    $this->frames->filter($filterCallback);
+                }
+            }
         }
 
         return $this->frames;
@@ -189,7 +254,7 @@ class Inspector
      *
      * If xdebug is installed
      *
-     * @param  \Throwable $exception
+     * @param \Throwable $e
      * @return array
      */
     protected function getTrace($e)
@@ -205,8 +270,8 @@ class Inspector
             return $traces;
         }
 
-        if (!extension_loaded('xdebug') || !xdebug_is_enabled()) {
-            return [];
+        if (!extension_loaded('xdebug') || !function_exists('xdebug_is_enabled') || !xdebug_is_enabled()) {
+            return $traces;
         }
 
         // Use xdebug to get the full stack trace and remove the shutdown handler stack trace
@@ -255,7 +320,6 @@ class Inspector
      * Determine if the frame can be used to fill in previous frame's missing info
      * happens for call_user_func and call_user_func_array usages (PHP Bug #44428)
      *
-     * @param array $frame
      * @return bool
      */
     protected function isValidNextFrame(array $frame)

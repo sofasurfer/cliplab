@@ -1,20 +1,21 @@
-title: Site
+# The `site.yml` blueprint defines the look of the start page (Dashboard) of the Panel.
 
-pages: default
+# The site blueprint usually provides easy access to all main pages of the site.
+# In this example blueprint, we also show subpages of the `photography` and `notes` pages.
+# More about the site blueprint: https://getkirby.com/docs/reference/panel/blueprints/site
 
-fields:
-  title:
-    label: Title
-    type:  text
-
-  author:
-    label: Author
-    type:  text
-
-  description:
-    label: Description
-    type:  textarea
-    
-  copyright:
-    label: Copyright
-    type:  textarea
+# The layout of this form has two columns:
+columns:
+  # The first column has one section for the subpages of the `photography` page in card layout
+  # It reuses the pages section defined in `/site/blueprints/sections/albums.yml`
+  - width: 1/2
+    sections:
+      projects: sections/projects
+  - width: 1/2
+    sections:
+      pages:
+        type: pages
+        create: default
+        templates:
+          - home
+          - contact
