@@ -1,6 +1,6 @@
 <?php
 
-if(kirby()->request()->ajax()) {
+if( get('q') ) {
 
     $query   = get('q');
     $results = $site->search($query, 'title|text');
@@ -19,5 +19,5 @@ if(kirby()->request()->ajax()) {
     
 }
 else {
-    header::status('404');
+    Header::status('404');
 }

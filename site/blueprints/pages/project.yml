@@ -10,6 +10,11 @@ columns:
         label: Title
         type:  text
 
+      showslider:
+        label: ImageSlider
+        type: toggle
+        text: show Images as slider
+
       created:
         label: Datum
         type:  date
