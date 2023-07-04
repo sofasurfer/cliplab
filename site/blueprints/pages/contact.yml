@@ -3,8 +3,8 @@ title: Contact
 pages: false
 
 options: 
-  delete: false
-  status: false
+  delete: true
+  status: true
 
 fields: 
   title:

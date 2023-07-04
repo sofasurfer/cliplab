@@ -4,11 +4,13 @@ files: false
 
 pages:
   template: project
+  sortable: true
 
 options: 
   template: false  
-  status: false  
-  url: false  
+  status: true  
+  url: true
+  sortable: true
 
 fields:
   title:

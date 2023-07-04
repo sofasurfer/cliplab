@@ -3,6 +3,11 @@ title: Project
 pages: true
   template: project
 
+options: 
+  template: false
+  status: true  
+  url: true
+
 columns:
   - width: 2/3
     fields:

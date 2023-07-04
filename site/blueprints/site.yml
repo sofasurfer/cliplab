@@ -19,3 +19,14 @@ columns:
         templates:
           - home
           - contact
+      fields:
+        title: Footer Links
+        options:
+          preview: false
+        fields:
+          footerLeft:
+            label: Footer Left
+            type: text
+          footerRight:
+            label: Footer Right
+            type: text

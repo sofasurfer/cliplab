@@ -8,7 +8,7 @@ parent: kirby.page("projects")
 info: "{{ page.published }}"
 template: project
 empty: No notes yet
-sortBy: date desc
+sortable: true
 image:
   query: page.cover
   cover: true
