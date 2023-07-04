@@ -259,6 +259,9 @@ footer a:hover{
 footer .social a{
   padding-left: 10px;
 }
+.pull-right a{
+  float: right;
+}
 
 /*body.error footer,
 body.contact footer,*/

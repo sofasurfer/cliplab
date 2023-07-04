@@ -3,13 +3,9 @@
       <div class="row">
         <div class="col-md-6">
           <?php echo $site->footerLeft()->kirbytext(); ?>
-          <a class="pull-left" href="mailto:info@rogerkeller.xyz">E-Mail</a>
         </div>
-        <div class="col-md-6">
-            <p class="pull-right social">
-              <a target="_blank" href="https://www.rogerkeller.xyz/">Running</a>
-
-            </p>
+        <div class="col-md-6 pull-right" >
+              <?php echo $site->footerRight()->kirbytext(); ?>
         </div>
       </div>
     </div>
