@@ -20,3 +20,7 @@ fields:
   text:
     label: Text
     type:  textarea
+
+  metadesk:
+    label: Meta Description
+    type:  text

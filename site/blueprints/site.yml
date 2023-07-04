@@ -11,19 +11,36 @@ columns:
   - width: 1/2
     sections:
       projects: sections/projects
-  - width: 1/2
-    sections:
       pages:
         type: pages
         create: default
         templates:
           - home
           - contact
+  - width: 1/2
+    sections:
+
       fields:
         title: Footer Links
         options:
           preview: false
         fields:
+          metaTitle:
+            label: Title
+            type:  text
+
+          author:
+            label: Author
+            type:  text
+
+          description:
+            label: Description
+            type:  textarea
+            
+          # copyright:
+          #   label: Copyright
+          #   type:  textarea
+
           footerLeft:
             label: Footer Left
             type: text
