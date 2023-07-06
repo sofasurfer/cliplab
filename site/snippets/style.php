@@ -259,8 +259,15 @@ footer a:hover{
 footer .social a{
   padding-left: 10px;
 }
-.pull-right a{
+
+footer .col-md-6{
+  width: 50%;
+  float: left;
+}
+footer .col-md-6.pull-right{
+  width: 50%;
   float: right;
+  text-align: right;
 }
 
 /*body.error footer,

@@ -1,7 +1,7 @@
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 ">
           <?php echo $site->footerLeft()->kirbytext(); ?>
         </div>
         <div class="col-md-6 pull-right" >
