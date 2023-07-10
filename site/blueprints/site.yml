@@ -14,9 +14,7 @@ columns:
       pages:
         type: pages
         create: default
-        templates:
-          - home
-          - contact
+  
   - width: 1/2
     sections:
 

@@ -44,6 +44,7 @@ if(isset($limit)) $projects = $projects->limit($limit);
           </a>
       </div>
     <?php endif ?>
+    <?php if(!empty($projects)): ?>
     <?php foreach($projects as $project): ?>
       <div class="col-md-4">
           <a href="<?= $project->url() ?>" class="showcase-link">
@@ -56,5 +57,6 @@ if(isset($limit)) $projects = $projects->limit($limit);
           </a>
       </div>
     <?php endforeach ?>
+    <?php endif; ?>
   </div>
 </div>

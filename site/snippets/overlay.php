@@ -30,7 +30,7 @@
         <div class="col-md-8 col-md-offset-2">    
                 <?php
                 $projects = page('projects')->children();
-                $timeline = array();                
+                $timeline = array();
                 foreach ($projects as $project) {
                      $timeline[] = array(
                          'title' => (string)$project->title(),
